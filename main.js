@@ -28,6 +28,7 @@ var totalOfPrices = allPrices.reduce(function(a, b) {
   return a + b;
 });
 var firstAnswer = totalOfPrices / allPrices.length;
+
 $('#answer1').replaceWith(firstAnswer);
 // old way...
 // document.getElementById('answer1').innerHTML = firstAnswer;
@@ -38,10 +39,52 @@ var priceRange = _.chain(allPrices).filter(function(price) {
 });
 
 // #3
-var getCurrencies = _.pluck(items, "currency_code");
-var britPound = function(m) {
+// var britPound = _.filter(items, function(currency_code) {
+//   return currency_code === "GBP";
+// });
+// var getCurrencies = _.pluck(items, "currency_code");
+// var britPound = function(m) {
+//
+// }
+// var objWithGBP = _.findWhere(items, {
+//   currency_code: "GBP"
+// });
+// var brittishProduct = _.map(objWithGBP, function(el) {
+//   return [el.title, el.price]
+// });
+var objWithGBP = items.filter(function(l){
+ return l.currency_code === "GBP";
+});
+var brittishProduct = _.map(objWithGBP, function(l) {
+  return [l.title + ", " + l.price]
+});
 
-}
+$('#answer3').replaceWith(brittishProduct + " GBP");
+
+//#4
+// var madeWithWood = items.filter(function(l) {
+//   return l.materials === "wood";
+// });
+// var woodyProducts = _.map(madeWithWood, function(l) {
+//   return [l.title]
+// }));
+// (function(l) {
+//   if
+//   return l.materials === "wood";
+// });
+var madeWithWood = items.filter(function(elm) {
+  return _.contains(elm,'wood');
+});
+
+// #5
+
+
+// #6
+var madeBySellers = items.filter(function(l) {
+  return l.who_made === "i_did";
+});
+
+$('#answer6').replaceWith(madeBySellers.length);
 
 
 
