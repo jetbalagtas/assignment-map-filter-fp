@@ -34,9 +34,7 @@ $('#answer1').replaceWith(firstAnswer);
 // document.getElementById('answer1').innerHTML = firstAnswer;
 
 // #2
-var priceRange = _.chain(allPrices).filter(function(price) {
-  return price >= 14 && price <= 18;
-});
+
 
 // #3
 // var britPound = _.filter(items, function(currency_code) {
@@ -73,11 +71,24 @@ $('#answer3').replaceWith(brittishProduct + " GBP");
 //   return l.materials === "wood";
 // });
 var madeWithWood = items.filter(function(elm) {
-  return _.contains(elm,'wood');
+  return _.contains(elm.materials,'wood');
 });
 
-// #5
-
+// var withWood = " ";
+//   madeWithWood.forEach(function(currVal, idx, arr) {
+//     withWood += (currVal.listing_id + "<br>");
+//   });
+// $('answer4').text(withWood);
+//
+// // #5
+// var eightOrMore = _.filter(items, function(l) {
+//   return l.materials.length >= 8;
+// });
+//
+// var display = _.map(eightOrMore, fucntion(l){
+//   return l.title = "number:" + l.materials.length + "material:" + l.material;
+// });
+// $('answer5').text(display);
 
 // #6
 var madeBySellers = items.filter(function(l) {
